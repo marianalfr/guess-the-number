@@ -21,10 +21,13 @@ function guessNumber(){
         textHint.innerHTML = 'Demasiado bajo...';
     }
     if (numberValue === randomNumber){
-        textHint.innerHTML = `¡Bien hecho! ¡Has acertado en el intento número ${clicks}!.`;
+        textHint.innerHTML = `¡Bien hecho!, ¡has acertado en el intento número ${clicks}!.`;
     }
     if (numberValue < 1 || numberValue > 100){
         textHint.innerHTML = 'El número debe estar entre 1 y 100.';
+    }
+    if (numberValue === ''){
+        textHint.innerHTML = '¡Vamos, introduce un número!';
     }
 }
 
