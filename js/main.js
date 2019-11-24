@@ -4,6 +4,7 @@ let inputNumber = document.querySelector('#input-number');
 const buttonTry = document.querySelector('#btn-try');
 let textHint = document.querySelector('#hint');
 const textAttemps = document.querySelector('#attempts');
+const buttonReset = document.querySelector('#btn-reset');
 
 function getRandomNumber(max) {
    return Math.ceil(Math.random() * max);
@@ -21,30 +22,46 @@ function guessNumber(){
         textHint.innerHTML = 'Demasiado bajo...';
     }
     if (numberValue === randomNumber){
-        textHint.innerHTML = `¡Bien hecho!, ¡has acertado en el intento número ${clicks}!.`;
+        textHint.innerHTML = `¡Bien hecho!, ¡has acertado en el intento número ${clicks+1}!.`;
     }
     if (numberValue < 1 || numberValue > 100){
         textHint.innerHTML = 'El número debe estar entre 1 y 100.';
     }
-    if (numberValue === ''){
-        textHint.innerHTML = '¡Vamos, introduce un número!';
+    if (inputNumber.value === ''){
+        textHint.innerHTML = '¡Vamos, introduce un número!.';
     }
 }
 
 let clicks = 0;
 
 function onClick() {
-    clicks += 1;
-    textAttemps.innerHTML = `Llevas ${clicks} intentos.`;
-    console.log(clicks);
-
     guessNumber();
+    if (inputNumber.value === ''){
+        clicks = clicks;
+    } else {
+        clicks += 1;
+        textAttemps.innerHTML = `Llevas ${clicks} intentos.`;
+        console.log(clicks);
+    }
 };
+
+function onEnter(e){
+    if (e.keyCode === 13){
+        event.preventDefault();
+        buttonTry.click();
+    }
+}
+
+function clearOnReset(){
+    textHint.innerHTML = '🤖 Venga, ¡vamos allá de nuevo!. 🤖';
+    textAttemps.innerHTML = `Volvemos a empezar.`;
+}
 
 
 
 console.log('El número aleatorio es el ' + randomNumber + '.');
 buttonTry.addEventListener('click', onClick);
-
+inputNumber.addEventListener('keydown', onEnter);
+buttonReset.addEventListener('click', clearOnReset);
 
 
