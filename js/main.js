@@ -57,14 +57,14 @@ function onEnter(e){
 }
 
 function clearOnReset(){
-    textHint.innerHTML = '🤖 Venga, ¡vamos allá de nuevo!. 🤖';
+    textHint.innerHTML = '🤖 ¡Vamos allá de nuevo! 🤖';
     textAttemps.innerHTML = `Volvemos a empezar.`;
     clicks = 0;
 }
 
 function showWinModal(){
     winModal.classList.remove('hidden');
-    winAttempt.innerHTML = `¡Has acertado en el intento número ${clicks+1}`;
+    winAttempt.innerHTML = `¡Has acertado en el intento número ${clicks+1}.`;
 }
 
 function replay(){
