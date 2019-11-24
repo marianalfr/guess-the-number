@@ -14,16 +14,17 @@
             <h1>Adivina el número</h1>
             <label for="input-number">Introduce aquí tu número:</label>
             <input type="number" name="input-number" id="input-number" class="input-number">
-            <div id="win" class="win hidden">
-                <h2>¡Buen trabajo!
-                    ¿Quieres volver a jugar?
-                </h2>
-            </div>
             <button type="button" id="btn-try" class="btn-try">Prueba</button>
             <p class="hint" id="hint">🤖 No te preocupes, ¡te voy a dar pistas!. 🤖</p>
             <p id="attempts" class="attempts">¡Anímate a intentarlo!.</p>
             <button id="btn-reset" class="btn-reset" type="reset">↺</button>
         </form>
+        <div id="win" class="win hidden">
+            <h2>¡Buen trabajo!</h2>
+            <h3 id="win-attempt">¡Has acertado!.</h3>
+            <p id="btn-play" class="btn-reset">↺</p>
+            
+        </div>
 
     </main>
     <script src="js/main.js" type="text/javascript"></script>
